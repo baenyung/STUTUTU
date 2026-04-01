@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>자동차 스티커 차량용 데칼 감성 Bless Your Car — STUTUTU</title>
+<meta name="description" content="90년대 차고 감성의 자동차 스티커. 미국 국기 스티커 / 한국 국기 스티커 두 가지 버전. 방수 소재, 차량용 데칼, 감성 자동차 꾸미기.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,700;0,900;1,700;1,900&family=Barlow:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1A2347;
+    --navy-mid: #2E3A6E;
+    --yellow: #F5C400;
+    --yellow-bright: #FFD740;
+    --black: #0D0D0D;
+    --gray-light: #D0D0D0;
+    --gray-mid: #8C8C8C;
+    --gray-dark: #3A3A3A;
+    --cream: #F4EFE6;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--black);
+    font-family: 'Noto Sans KR', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ── CHECKER BAND ── */
+  .checker {
+    width: 100%;
+    height: 28px;
+    background-image:
+      repeating-conic-gradient(var(--black) 0% 25%, var(--white) 0% 50%);
+    background-size: 28px 28px;
+    flex-shrink: 0;
+  }
+  .checker-yellow {
+    height: 6px;
+    background: var(--yellow);
+    width: 100%;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    padding: 80px 40px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: 'BLESS YOUR CAR';
+    position: absolute;
+    bottom: -20px;
+    left: -10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(80px, 18vw, 200px);
+    font-weight: 900;
+    font-style: italic;
+    color: rgba(255,255,255,0.04);
+    white-space: nowrap;
+    letter-spacing: -2px;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--yellow);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-label::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 2px;
+    background: var(--yellow);
+  }
+
+  .hero-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(52px, 9vw, 110px);
+    font-weight: 900;
+    font-style: italic;
+    line-height: 0.9;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+  }
+  .hero-title span {
+    color: var(--yellow);
+    display: block;
+  }
+
+  .hero-sub {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--gray-light);
+    letter-spacing: 0.05em;
+    margin-top: 20px;
+    margin-bottom: 48px;
+  }
+
+  /* Product images */
+  .hero-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .product-img-wrap {
+    background: #F0EEEA;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+  .product-img-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .product-img-label {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--navy);
+    color: var(--yellow);
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  .hero-price-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .price-block {}
+  .price-label {
+    font-size: 11px;
+    color: var(--gray-mid);
+    font-family: 'Barlow Condensed', sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .price {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 44px;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1;
+  }
+  .price-unit {
+    font-size: 18px;
+    color: var(--yellow);
+    margin-left: 4px;
+  }
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    padding-bottom: 6px;
+  }
+  .tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--gray-light);
+    padding: 5px 12px;
+    border-radius: 2px;
+  }
+
+  /* ── SEO SECTION ── */
+  .seo-section {
+    background: var(--cream);
+    padding: 72px 40px;
+  }
+  .seo-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .section-no {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: var(--gray-mid);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    line-height: 1;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .section-rule {
+    width: 48px;
+    height: 3px;
+    background: var(--yellow);
+    margin-bottom: 32px;
+  }
+  .seo-body {
+    font-size: 15px;
+    font-weight: 300;
+    color: #2a2a2a;
+    line-height: 1.9;
+    max-width: 680px;
+  }
+  .seo-body strong {
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .seo-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 28px;
+  }
+  .kw-chip {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    background: var(--navy);
+    color: var(--yellow);
+    padding: 5px 14px;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── FEATURES ── */
+  .features-section {
+    background: var(--navy);
+    padding: 80px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .features-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .features-section .section-title {
+    color: var(--white);
+  }
+  .features-section .section-no {
+    color: var(--yellow);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2px;
+    margin-top: 48px;
+  }
+  .feat-card {
+    background: var(--navy-mid);
+    padding: 32px 24px;
+    position: relative;
+    transition: background 0.2s;
+  }
+  .feat-card:hover {
+    background: #354480;
+  }
+  .feat-number {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+    font-style: italic;
+    color: rgba(245, 196, 0, 0.15);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .feat-icon {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+  .feat-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    color: var(--yellow);
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+  .feat-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--gray-light);
+    line-height: 1.7;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  /* ── VARIANT SECTION ── */
+  .variant-section {
+    background: var(--black);
+    padding: 80px 40px;
+  }
+  .variant-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .variant-section .section-title {
+    color: var(--white);
+  }
+  .variant-section .section-no {
+    color: var(--yellow);
+  }
+  .variant-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .variant-card {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .variant-card:hover {
+    border-color: var(--yellow);
+  }
+  .variant-flag {
+    font-size: 40px;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .variant-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .variant-sub {
+    font-size: 12px;
+    color: var(--gray-mid);
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+  .variant-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: #aaa;
+    line-height: 1.7;
+  }
+  .variant-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  /* ── VIBE SECTION ── */
+  .vibe-section {
+    background: var(--cream);
+    padding: 80px 40px;
+  }
+  .vibe-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .vibe-quote-block {
+    background: var(--navy);
+    padding: 48px 48px 48px 60px;
+    position: relative;
+    margin-top: 48px;
+    margin-bottom: 40px;
+  }
+  .vibe-quote-block::before {
+    content: '"';
+    position: absolute;
+    left: 20px;
+    top: 28px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 80px;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--yellow);
+    line-height: 1;
+  }
+  .vibe-quote {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(22px, 4vw, 34px);
+    font-weight: 700;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.3;
+  }
+  .vibe-body {
+    font-size: 15px;
+    font-weight: 300;
+    color: #2a2a2a;
+    line-height: 1.9;
+    max-width: 680px;
+  }
+  .vibe-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 32px;
+  }
+  .vibe-item {
+    background: #E8E4DD;
+    padding: 28px 24px;
+  }
+  .vibe-item-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray-mid);
+    margin-bottom: 8px;
+  }
+  .vibe-item-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.6;
+  }
+
+  /* ── SPEC TABLE ── */
+  .spec-section {
+    background: #F0EEEA;
+    padding: 64px 40px;
+  }
+  .spec-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 36px;
+  }
+  .spec-table tr {
+    border-bottom: 1px solid var(--gray-light);
+  }
+  .spec-table td {
+    padding: 16px 0;
+    font-size: 14px;
+    vertical-align: top;
+  }
+  .spec-table td:first-child {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-mid);
+    width: 160px;
+    padding-right: 24px;
+  }
+  .spec-table td:last-child {
+    color: var(--navy);
+    font-weight: 400;
+  }
+
+  /* ── BRAND SECTION ── */
+  .brand-section {
+    background: var(--navy);
+    padding: 100px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .brand-section::after {
+    content: 'STUTUTU';
+    position: absolute;
+    bottom: -40px;
+    right: -20px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(100px, 20vw, 240px);
+    font-weight: 900;
+    font-style: italic;
+    color: rgba(255,255,255,0.03);
+    white-space: nowrap;
+    pointer-events: none;
+    line-height: 1;
+  }
+  .brand-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .brand-section .section-title {
+    color: var(--white);
+  }
+  .brand-section .section-no {
+    color: var(--yellow);
+  }
+  .brand-body {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--gray-light);
+    line-height: 1.9;
+    max-width: 620px;
+    margin-top: 32px;
+  }
+  .brand-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 32px;
+  }
+  .brand-kw {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.6);
+    padding: 5px 14px;
+    border-radius: 2px;
+  }
+
+  /* ── SLOGAN FOOTER ── */
+  .slogan-section {
+    background: var(--yellow);
+    padding: 72px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .slogan-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(28px, 6vw, 72px);
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    color: var(--navy);
+    line-height: 1;
+    letter-spacing: -1px;
+    position: relative;
+    z-index: 1;
+  }
+  .slogan-byline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(26, 35, 71, 0.5);
+    margin-top: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--black);
+    padding: 32px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--yellow);
+    letter-spacing: 0.05em;
+  }
+  .footer-copy {
+    font-size: 11px;
+    color: var(--gray-dark);
+    letter-spacing: 0.05em;
+    font-family: 'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+  }
+
+  /* ── DIVIDERS ── */
+  .divider-yellow {
+    height: 4px;
+    background: var(--yellow);
+    width: 100%;
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 56px 24px 72px; }
+    .hero-images { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: 1fr 1fr; }
+    .variant-grid { grid-template-columns: 1fr; }
+    .vibe-row { grid-template-columns: 1fr; }
+    .seo-section, .features-section, .variant-section, .vibe-section,
+    .spec-section, .brand-section, .slogan-section { padding: 56px 24px; }
+    .footer { padding: 24px; flex-direction: column; align-items: flex-start; }
+    .vibe-quote-block { padding: 40px 32px 40px 52px; }
+    .spec-table td:first-child { width: 120px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP CHECKER -->
+<div class="checker"></div>
+<div class="checker-yellow"></div>
+
+<!-- ═══════════════════════════════════════
+     HERO
+═══════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">STUTUTU COMPANY · TRACK A · LIFESTYLE</div>
+
+    <h1 class="hero-title">
+      Bless Your
+      <span>Car.</span>
+    </h1>
+
+    <p class="hero-sub">자동차 스티커 · 두 가지 버전</p>
+
+    <!-- Product Images -->
+    <div class="hero-images">
+      <div class="product-img-wrap">
+        <img src="STU01.png" alt="God Bless Korean Car — 자동차 스티커 미국 국기 버전" />
+        <div class="product-img-label">🇺🇸 American Ver.</div>
+      </div>
+      <div class="product-img-wrap">
+        <img src="STU02.png" alt="God Bless American Car — 차량용 스티커 한국 국기 버전" />
+        <div class="product-img-label">🇰🇷 Korean Ver.</div>
+      </div>
+    </div>
+
+    <div class="hero-price-row">
+      <div class="price-block">
+        <div class="price-label">Price</div>
+        <div class="price">8,000<span class="price-unit">원</span></div>
+      </div>
+      <div class="hero-tags">
+        <div class="tag">방수 소재</div>
+        <div class="tag">차량 외부 부착 가능</div>
+        <div class="tag">2 Versions</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="checker-yellow"></div>
+<div class="checker"></div>
+
+<!-- ═══════════════════════════════════════
+     SEO — 제품 소개
+═══════════════════════════════════════ -->
+<section class="seo-section">
+  <div class="seo-inner">
+    <div class="section-no">01 · Product</div>
+    <h2 class="section-title">자동차 스티커</h2>
+    <div class="section-rule"></div>
+
+    <div class="seo-body">
+      <strong>자동차 스티커</strong>를 찾는 분들을 위한 감성 자동차 스티커입니다.<br><br>
+
+      부담스럽지 않은 크기와 디자인으로 어떤 차에도 자연스럽게 어울리며, <br><strong>유리, 바디, 범퍼</strong> 어디든 깔끔하게 부착할 수 있습니다.<br><br>
+
+      <strong>방수 소재</strong>로 제작되어 내구성이 뛰어나며, 부담스럽지 않게 감성적인 분위기를 연출할 수 있습니다.<br><br>
+
+      <strong>미국 국기 스티커 / 한국 국기 스티커</strong> 두 가지 버전으로, 차량뿐만 아니라 다양한 라이프스타일 아이템에도 활용 가능합니다.
+    </div>
+
+    <div class="seo-keywords">
+      <div class="kw-chip">감성 자동차 스티커</div>
+      <div class="kw-chip">차량 꾸미기</div>
+      <div class="kw-chip">자동차 외부 스티커</div>
+      <div class="kw-chip">방수 스티커</div>
+      <div class="kw-chip">차량 데코</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FEATURES — 사용성 및 특징
+═══════════════════════════════════════ -->
+<section class="features-section">
+  <div class="features-inner">
+    <div class="section-no">02 · Features</div>
+    <h2 class="section-title">특징</h2>
+    <div class="section-rule"></div>
+
+    <div class="features-grid">
+      <div class="feat-card">
+        <div class="feat-number">01</div>
+        <div class="feat-title">방수 소재</div>
+        <div class="feat-desc">비, 세차, 자외선에 강한 고내구성 방수 소재. 자동차 외부 부착에 최적화.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-number">02</div>
+        <div class="feat-title">간편 부착</div>
+        <div class="feat-desc">기포 없이 깔끔하게 붙는 구조. 차량 유리, 범퍼, 보디패널 모두 가능.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-number">03</div>
+        <div class="feat-title">범용 사이즈</div>
+        <div class="feat-desc">차량 데코 스티커로 부담 없는 크기. 차량은 물론 헬멧, 노트북, 가방에도 잘 어울립니다.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-number">04</div>
+        <div class="feat-title">2 Versions..and more..?</div>
+        <div class="feat-desc">한국 국기 스티커 / 미국 국기 스티커. 인기 많으면 다른 국가 제품들이 나올지도..?</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="checker-yellow"></div>
+<div class="checker"></div>
+
+<!-- ═══════════════════════════════════════
+     VARIANT
+═══════════════════════════════════════ -->
+<section class="variant-section">
+  <div class="variant-inner">
+    <div class="section-no">03 · Variants</div>
+    <h2 class="section-title">두 가지 버전</h2>
+    <div class="section-rule" style="background: var(--yellow);"></div>
+
+    <div class="variant-grid">
+      <div class="variant-card">
+        <span class="variant-flag">🇰🇷</span>
+        <div class="variant-name">Korean Car</div>
+        <div class="variant-sub">한국 국기 스티커 버전</div>
+        <div class="variant-desc">
+          태극기를 담은 버전. 국산차에 잘 어울리는 자연스러운 무드.<br>자랑스러운 국산차에 포인트를.
+        </div>
+        <div class="variant-badge">Korean Ver.</div>
+      </div>
+      <div class="variant-card">
+        <span class="variant-flag">🇺🇸</span>
+        <div class="variant-name">American Car</div>
+        <div class="variant-sub">미국 국기 스티커 버전</div>
+        <div class="variant-desc">
+          성조기를 담은 버전. 미제 차량은 물론 어떤 차에도 어울리는 90s 개러지 무드
+        </div>
+        <div class="variant-badge">American Ver.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     VIBE — 감성 설명
+═══════════════════════════════════════ -->
+<section class="vibe-section">
+  <div class="vibe-inner">
+    <div class="section-no">04 · Vibe</div>
+    <h2 class="section-title">From a garage,<br>not a showroom.</h2>
+    <div class="section-rule"></div>
+    <div class="vibe-body">
+      차고 안에 오래된 달력이 붙어 있고, 라디오에서는 잡음 섞인 야구 중계가 흘러나오던 그 느낌. <br>
+STUTUTU는 그런 분위기에서 시작되었습니다.<br><br>
+
+      자동차 라이프스타일을 어렵게 접근할 필요 없어요. 차를 좋아하고, 그걸 가볍게 표현하고 싶은 사람이라면 <br>
+이 <strong>차량 데코 스티커</strong> 하나로 충분합니다.
+    </div>
+
+    <div class="vibe-row">
+      <div class="vibe-item">
+        <div class="vibe-item-label">Mood</div>
+        <div class="vibe-item-text">90s Garage · Chill · Low-pressure</div>
+      </div>
+      <div class="vibe-item">
+        <div class="vibe-item-label">Who It's For</div>
+        <div class="vibe-item-text">차와 함께하는 여유를 좋아하는 사람이라면 누구든</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SPEC TABLE
+═══════════════════════════════════════ -->
+<section class="spec-section">
+  <div class="spec-inner">
+    <div class="section-no">05 · Specifications</div>
+    <h2 class="section-title">제품 사양</h2>
+    <div class="section-rule"></div>
+
+    <table class="spec-table">
+      <tr>
+        <td>Product</td>
+        <td>Bless Your Car — 차량용 스티커</td>
+      </tr>
+      <tr>
+        <td>Version</td>
+        <td>Korean 🇰🇷 / American 🇺🇸 (각 단품 선택)</td>
+      </tr>
+      <tr>
+        <td>Material</td>
+        <td>방수 PVC 데칼 소재</td>
+      </tr>
+      <tr>
+        <td>Finish</td>
+        <td>무광 / 자외선 코팅</td>
+      </tr>
+      <tr>
+        <td>Usage</td>
+        <td>차량 외부, 유리, 범퍼, 보디패널, 가방, 헬멧</td>
+      </tr>
+      <tr>
+        <td>Brand</td>
+        <td>STUTUTU — Automotive Lifestyle Brand</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<div class="checker"></div>
+<div class="checker-yellow"></div>
+
+<!-- ═══════════════════════════════════════
+     BRAND SECTION
+═══════════════════════════════════════ -->
+<section class="brand-section">
+  <div class="brand-inner">
+    <div class="section-no">06 · About Brand</div>
+    <h2 class="section-title">STUTUTU</h2>
+    <div class="section-rule"></div>
+
+    <p class="brand-body">
+      STUTUTU는 90년대 미국 차고의 분위기를 담아,<br> 차를 좋아하는 사람들의 일상에 자연스럽게 스며드는 자동차 라이프스타일 브랜드입니다.<br><br>
+
+      Garage mood, car lifestyle, automotive lifestyle을 기반으로<br> 부담 없이 즐길 수 있는 자동차 문화를 만들어갑니다.
+    </p>
+
+    <div class="brand-keywords">
+      <div class="brand-kw">Automotive Lifestyle</div>
+      <div class="brand-kw">Garage Life</div>
+      <div class="brand-kw">90s Mood</div>
+      <div class="brand-kw">스투투투</div>
+      <div class="brand-kw">Car Culture</div>
+      <div class="brand-kw">자동차 라이프스타일</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SLOGAN
+═══════════════════════════════════════ -->
+<section class="slogan-section">
+  <div class="slogan-text">차를 좋아하는<br>가장 편한 방식.</div>
+  <div class="slogan-byline">— STUTUTU</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-brand">STUTUTU®</div>
+  <div class="footer-copy">© 2025 STUTUTU Company · Automotive Lifestyle Brand · stututu.co.kr</div>
+</footer>
+
+</body>
+</html>
