@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUTUTU | The Chillest Garage on the Internet</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- BRAND VARIABLES --- */
+        :root {
+            --navy: #1A2347;
+            --yellow: #F5C400;
+            --cream: #F4EFE6;
+            --black: #0D0D0D;
+            --gray: #D0D0D0;
+            --font-display: 'Oswald', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        /* --- RESET & BASE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--cream);
+            color: var(--navy);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, .font-display {
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            line-height: 1.1;
+            font-style: italic;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--navy);
+            color: var(--cream);
+            font-family: var(--font-display);
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+        .btn:hover {
+            background-color: var(--yellow);
+            color: var(--navy);
+        }
+        .btn-yellow {
+            background-color: var(--yellow);
+            color: var(--navy);
+        }
+        .btn-yellow:hover {
+            background-color: var(--navy);
+            color: var(--cream);
+        }
+        .checker-border {
+            height: 12px;
+            background-image: repeating-linear-gradient(45deg, var(--black) 25%, transparent 25%, transparent 75%, var(--black) 75%, var(--black)), repeating-linear-gradient(45deg, var(--black) 25%, var(--cream) 25%, var(--cream) 75%, var(--black) 75%, var(--black));
+            background-position: 0 0, 10px 10px;
+            background-size: 20px 20px;
+        }
+        .checker-border.dark {
+            background-image: repeating-linear-gradient(45deg, var(--yellow) 25%, transparent 25%, transparent 75%, var(--yellow) 75%, var(--yellow)), repeating-linear-gradient(45deg, var(--yellow) 25%, var(--black) 25%, var(--black) 75%, var(--yellow) 75%, var(--yellow));
+        }
+
+        /* --- ANNOUNCEMENT BAR --- */
+        .announcement {
+            background-color: var(--yellow);
+            color: var(--navy);
+            text-align: center;
+            padding: 8px 10px;
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            background-color: var(--cream);
+            border-bottom: 2px solid var(--navy);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -1px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            font-weight: 600;
+        }
+        .nav-links a:hover {
+            color: var(--yellow);
+            text-shadow: 1px 1px 0px var(--navy);
+        }
+        .cart-toggle {
+            background: none;
+            border: none;
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .cart-count {
+            background-color: var(--yellow);
+            color: var(--navy);
+            border-radius: 50%;
+            padding: 2px 8px;
+            font-size: 0.9rem;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 70vh;
+            background-image: linear-gradient(rgba(26, 35, 71, 0.4), rgba(26, 35, 71, 0.8)), url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--cream);
+            padding: 20px;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0px var(--black);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- TRACK A: DAILY GEAR (SHOP) --- */
+        .shop-section {
+            padding: 80px 0;
+        }
+        .section-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .section-header h2 {
+            font-size: 2.5rem;
+        }
+        .section-header p {
+            color: var(--navy);
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .product-card {
+            background-color: #fff;
+            border: 2px solid var(--navy);
+            position: relative;
+            transition: transform 0.2s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 6px 6px 0px var(--navy);
+        }
+        .product-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--navy);
+            background-color: var(--gray);
+        }
+        .product-info {
+            padding: 15px;
+        }
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        .product-price {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .btn-add {
+            width: 100%;
+        }
+        .badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--yellow);
+            color: var(--navy);
+            font-family: var(--font-display);
+            padding: 4px 8px;
+            font-size: 0.8rem;
+            border: 2px solid var(--navy);
+        }
+
+        /* --- BRAND WORLD --- */
+        .brand-world {
+            background-color: var(--navy);
+            color: var(--cream);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .brand-world h2 {
+            color: var(--yellow);
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .brand-world p {
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* --- TRACK B: THE PADDOCK --- */
+        .track-b {
+            background-color: var(--black);
+            color: var(--cream);
+            padding: 80px 0;
+        }
+        .track-b .section-header p {
+            color: var(--gray);
+        }
+        .track-b .product-card {
+            background-color: var(--black);
+            border-color: #333;
+        }
+        .track-b .product-img {
+            border-color: #333;
+            filter: grayscale(20%);
+        }
+        .track-b .product-card:hover {
+            box-shadow: 6px 6px 0px var(--yellow);
+            border-color: var(--yellow);
+        }
+        .track-b .btn-add {
+            background-color: transparent;
+            border: 2px solid var(--cream);
+            color: var(--cream);
+        }
+        .track-b .btn-add:hover {
+            background-color: var(--cream);
+            color: var(--black);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--cream);
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .footer-logo {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+        .trust-icons {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+        }
+
+        /* --- SLIDE OUT CART DRAWER --- */
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 13, 13, 0.6);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .cart-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            background-color: var(--cream);
+            z-index: 1000;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border-left: 4px solid var(--navy);
+        }
+        .cart-drawer.active {
+            right: 0;
+        }
+        .cart-header {
+            padding: 20px;
+            border-bottom: 2px solid var(--navy);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--navy);
+            line-height: 1;
+        }
+        .cart-items {
+            padding: 20px;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+        .empty-cart-msg {
+            text-align: center;
+            color: var(--navy);
+            margin-top: 50px;
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+        }
+        .cart-footer {
+            padding: 20px;
+            border-top: 2px solid var(--navy);
+            background-color: #fff;
+        }
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--gray);
+            padding-bottom: 15px;
+        }
+        .cart-item img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border: 1px solid var(--navy);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Hamburger menu needed for full build */
+            .hero h1 { font-size: 3rem; }
+            .trust-icons { flex-direction: column; gap: 15px; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .product-img { height: 180px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="announcement">
+        FREE SHIPPING OVER $50 • SHIPS WORLDWIDE • WELCOME TO UNCLE BEN'S GARAGE
+    </div>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">STUTUTU.</a>
+            <nav class="nav-links">
+                <a href="#daily-gear">DAILY GEAR</a>
+                <a href="#the-paddock">THE PADDOCK</a>
+                <a href="#about">ABOUT</a>
+            </nav>
+            <button class="cart-toggle" onclick="toggleCart()">
+                CART <span class="cart-count" id="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div>
+            <h1>NO PRESSURE.<br>JUST GOOD DRIVE VIBES.</h1>
+            <p>Goods for the drive, the desk, and everywhere in between. The chillest automotive lifestyle brand on the internet.</p>
+            <a href="#daily-gear" class="btn btn-yellow">ENTER THE GARAGE</a>
+        </div>
+    </section>
+
+    <div class="checker-border"></div>
+
+    <section id="daily-gear" class="shop-section container">
+        <div class="section-header">
+            <h2>THE DAILY GEAR</h2>
+            <p>Stuff to make your commute suck less.</p>
+        </div>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="badge">BESTSELLER</div>
+                <img src="https://images.unsplash.com/photo-1587588053748-0d1a44c9b139?auto=format&fit=crop&q=80&w=600" alt="Sticker Pack" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">90s Workshop Sticker Pack</h3>
+                    <p class="product-price">$12.00</p>
+                    <button class="btn btn-add" onclick="addToCart('90s Workshop Sticker Pack', 12, this)">ADD TO GARAGE</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1623998021446-45cd9b269056?auto=format&fit=crop&q=80&w=600" alt="Keytag" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">"Slow Car" Flight Tag</h3>
+                    <p class="product-price">$8.00</p>
+                    <button class="btn btn-add" onclick="addToCart('Slow Car Flight Tag', 8, this)">ADD TO GARAGE</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1611078709328-97fb57fb4a7d?auto=format&fit=crop&q=80&w=600" alt="Air Freshener" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">Morning Oil Air Freshener</h3>
+                    <p class="product-price">$6.00</p>
+                    <button class="btn btn-add" onclick="addToCart('Morning Oil Air Freshener', 6, this)">ADD TO GARAGE</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&q=80&w=600" alt="T-Shirt" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">Tutu's Garage Tee (Cream)</h3>
+                    <p class="product-price">$35.00</p>
+                    <button class="btn btn-add" onclick="addToCart('Tutu Garage Tee', 35, this)">ADD TO GARAGE</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="brand-world">
+        <h2>MEET TUTU & THE MECHANIC</h2>
+        <p>Welcome to Uncle Ben's Garage. We love 90s car culture, but we got tired of the elitist, hyper-technical attitude. We built STUTUTU to be the easiest, most comfortable way to like cars. No gatekeeping, just good gear.</p>
+        <button class="btn btn-yellow">READ THE NOTES</button>
+    </section>
+
+    <div class="checker-border dark"></div>
+
+    <section id="the-paddock" class="track-b">
+        <div class="container">
+            <div class="section-header">
+                <h2>THE PADDOCK</h2>
+                <p>Restrained design. Motorsport roots. Limited archive runs.</p>
+            </div>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="badge" style="background:#0D0D0D; color:#F4EFE6; border-color:#F4EFE6;">EDITION OF 100</div>
+                    <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&q=80&w=600" alt="Jacket" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Homage Pit Jacket No. 01</h3>
+                        <p class="product-price">$120.00</p>
+                        <button class="btn btn-add" onclick="addToCart('Homage Pit Jacket No. 01', 120, this)">SECURE YOURS</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1503342394128-c104d54dba01?auto=format&fit=crop&q=80&w=600" alt="Wheel Poster" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Blueprint Spec Print</h3>
+                        <p class="product-price">$45.00</p>
+                        <button class="btn btn-add" onclick="addToCart('Blueprint Spec Print', 45, this)">SECURE YOURS</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="checker-border"></div>
+    <footer>
+        <div class="trust-icons">
+            <span>🌍 WORLDWIDE SHIPPING</span>
+            <span>🤝 30-DAY RETURNS</span>
+            <span>🛠️ HONEST QUALITY</span>
+        </div>
+        <div class="footer-logo">STUTUTU.</div>
+        <p style="margin-bottom: 20px;">Join the Garage. Get 10% off your first run.</p>
+        <div style="display:flex; justify-content:center; gap:10px; margin-bottom: 40px;">
+            <input type="email" placeholder="YOUR EMAIL" style="padding:10px; border:2px solid var(--navy); font-family:var(--font-body); width: 250px;">
+            <button class="btn">JOIN THE CREW</button>
+        </div>
+        <p style="font-size: 0.8rem; opacity: 0.7;">© 2026 STUTUTU. The chillest analog car brand.</p>
+    </footer>
+
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h2 class="font-display" style="font-size: 1.5rem;">YOUR GARAGE</h2>
+            <button class="close-cart" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <p class="empty-cart-msg">Your toolbox is empty. <br>Let's fix that.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>SUBTOTAL</span>
+                <span id="cart-total-price">$0.00</span>
+            </div>
+            <p style="font-size: 0.8rem; margin-bottom: 15px; text-align: center;">Shipping & taxes calculated at checkout.</p>
+            <button class="btn" style="width: 100%;">CHECKOUT</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        let cartTotal = 0;
+
+        function toggleCart() {
+            document.getElementById('cart-drawer').classList.toggle('active');
+            document.getElementById('cart-overlay').classList.toggle('active');
+        }
+
+        function addToCart(name, price, buttonElement) {
+            // Update Data
+            cart.push({ name, price });
+            cartTotal += price;
+            
+            // UI Feedback on Button
+            const originalText = buttonElement.innerText;
+            buttonElement.innerText = "ADDED TO GARAGE";
+            buttonElement.style.backgroundColor = "var(--yellow)";
+            buttonElement.style.color = "var(--navy)";
+            
+            setTimeout(() => {
+                buttonElement.innerText = originalText;
+                buttonElement.style.backgroundColor = "";
+                buttonElement.style.color = "";
+            }, 1500);
+
+            // Update Header Count
+            document.getElementById('cart-count').innerText = cart.length;
+
+            // Render Cart HTML
+            renderCart();
+            
+            // Pop open drawer automatically
+            document.getElementById('cart-drawer').classList.add('active');
+            document.getElementById('cart-overlay').classList.add('active');
+        }
+
+        function renderCart() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="empty-cart-msg">Your toolbox is empty. <br>Let\'s fix that.</p>';
+                return;
+            }
+
+            let html = '';
+            cart.forEach(item => {
+                html += `
+                <div class="cart-item">
+                    <div style="background:var(--gray); width:60px; height:60px; border:1px solid var(--navy);"></div>
+                    <div>
+                        <div class="font-display" style="font-size:1.1rem; line-height:1.2;">${item.name}</div>
+                        <div style="font-weight:600; margin-top:5px;">$${item.price.toFixed(2)}</div>
+                    </div>
+                </div>
+                `;
+            });
+
+            cartItemsContainer.innerHTML = html;
+            document.getElementById('cart-total-price').innerText = `$${cartTotal.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
